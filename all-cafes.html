@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Cafés - Café Randomizer</title>
+    <link rel="stylesheet" href="styles/main.css?v=2">
+    <link rel="icon" href="src/icon.png" type="image/x-icon">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+          <h1 class="app-title"><a href="index.html" style="text-decoration: none; color: inherit;">Café Randomizer</a></h1>
+            <div class="header-links">
+                <a href="index.html" class="header-link">Home</a>
+                <a href="all-cafes.html" class="header-link">All Cafés</a>
+                <button class="header-link settings-btn" aria-label="Settings">Settings</button>
+            </div>
+        </header>
+        <div class="decorated-intro">
+            <strong>Browse all Bangkok cafés curated by Café Randomizer.</strong><br>
+            Add cafés to your personal list!
+        </div>
+        <main class="main-content">
+            <section class="public-cafe-list-section">
+                <div class="public-cafe-bar-center">
+                  <input type="text" id="public-cafe-search" class="public-cafe-search" placeholder="Search cafés..." autocomplete="off" style="max-width:400px;width:100%;" />
+                  <button id="public-cafe-filter-btn" aria-label="Show filters" class="public-cafe-filter-hamburger"><span>☰</span></button>
+                </div>
+                <div id="public-cafe-filter-panel" class="public-cafe-filter-panel" style="display:none;max-width:400px;margin:0 auto 1.5rem auto;padding:1.2em 1.2em 1em 1.2em;background:var(--card-bg);border-radius:18px;box-shadow:0 2px 12px rgba(0,0,0,0.07);">
+                  <div class="filter-group">
+                    <div class="filter-label">Rating</div>
+                    <label><input type="checkbox" class="public-cafe-filter-rating" value="5"> ⭐️ 5</label>
+                    <label><input type="checkbox" class="public-cafe-filter-rating" value="4"> ⭐️ 4</label>
+                    <label><input type="checkbox" class="public-cafe-filter-rating" value="3"> ⭐️ 3</label>
+                    <label><input type="checkbox" class="public-cafe-filter-rating" value="2"> ⭐️ 2</label>
+                    <label><input type="checkbox" class="public-cafe-filter-rating" value="1"> ⭐️ 1</label>
+                  </div>
+                  <div class="filter-group">
+                    <div class="filter-label">Opening Time</div>
+                    <label><input type="checkbox" class="public-cafe-filter-opening" value="open"> ⏰ Open Now</label>
+                    <label><input type="checkbox" class="public-cafe-filter-opening" value="24h"> 🕛 24 Hours</label>
+                  </div>
+                  <div class="filter-group">
+                    <div class="filter-label">Amenities</div>
+                    <label><input type="checkbox" class="public-cafe-filter-amenities" value="wifi"> 📶 Wi-Fi</label>
+                    <label><input type="checkbox" class="public-cafe-filter-amenities" value="power"> 🔌 Power</label>
+                    <label><input type="checkbox" class="public-cafe-filter-amenities" value="windows"> 🪟 Windows</label>
+                    <label><input type="checkbox" class="public-cafe-filter-amenities" value="toilet"> 🚻 Toilet</label>
+                    <label><input type="checkbox" class="public-cafe-filter-amenities" value="food"> 🍽️ Food</label>
+                    <label><input type="checkbox" class="public-cafe-filter-amenities" value="ac"> ❄️ Air Conditioning</label>
+                    <label><input type="checkbox" class="public-cafe-filter-amenities" value="quiet"> 🤫 Quiet</label>
+                    <label><input type="checkbox" class="public-cafe-filter-amenities" value="outdoor"> 🌳 Outdoor</label>
+                    <label><input type="checkbox" class="public-cafe-filter-amenities" value="kid"> 👶 Kid Friendly</label>
+                  </div>
+                </div>
+                <div class="cafe-grid" id="public-cafe-grid">
+                    <!-- Public cafes will be rendered here -->
+                </div>
+            </section>
+        </main>
+        <div class="more-to-add-message" style="text-align:center;color:#b45309;font-size:1.1rem;margin:2.5rem 0 0.5rem 0;">
+          more to add :)
+        </div>
+        <!-- Modal for public cafe details -->
+        <div class="modal" id="public-cafe-modal" hidden>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="public-cafe-modal-title">Café Details</h3>
+                    <button class="modal-close" id="public-cafe-modal-close" aria-label="Close">×</button>
+                </div>
+                <div class="modal-body" id="public-cafe-modal-body">
+                    <!-- Details will be injected here -->
+                </div>
+                <div class="form-actions" style="justify-content: flex-end;">
+                    <button class="primary-btn" id="add-public-cafe-btn">Add to My Cafés</button>
+                </div>
+            </div>
+        </div>
+        <!-- Settings Modal (copied from index.html) -->
+        <div class="modal" id="howto-modal" hidden>
+            <div class="modal-content" style="max-width: 400px;">
+              <div class="modal-header">
+                <h3>How to Use</h3>
+                <button class="modal-close" id="howto-close" aria-label="Close">×</button>
+              </div>
+              <div class="modal-body" style="padding: 2rem; text-align: left;">
+                <ol style="margin-bottom: 1.5rem;">
+                  <li><strong>Add cafés</strong> you like using the <b>+ Add Café</b> button.</li>
+                  <li>Click <b>Shuffle</b> to get a random suggestion from your list.</li>
+                  <li>Use the <b>eye</b> button to temporarily hide a café from the shuffle.</li>
+                  <li>Edit or delete cafés anytime from your list.</li>
+                  <li>All your data is saved in your browser (no account needed).</li>
+                </ol>
+                <label style="display: flex; align-items: center; gap: 0.5em;">
+                  <input type="checkbox" id="howto-dontshow"> Don't show this again
+                </label>
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+    <footer class="app-footer">
+        <div>
+          © 2025 Café Randomizer by takedaxz
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/takedaxz" target="_blank" rel="noopener">GitHub</a>
+          <span>·</span>
+          <a href="mailto:pattaradanait@outlook.com">Email</a>
+        </div>
+    </footer>
+
+    <script src="scripts/database.js"></script>
+    <script src="scripts/cafeManager.js"></script>
+    <script src="scripts/randomizer.js"></script>
+    <script src="scripts/uiController.js"></script>
+    <script src="scripts/performance.js"></script>
+    <script src="scripts/accessibility.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/allCafes.js"></script>
+</body>
+</html> 
