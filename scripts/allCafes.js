@@ -6,7 +6,7 @@ const publicCafes = [
     location: 'Starbucks Siam Discovery',
     rating: 4,
     amenities: ['wifi', 'food','power', 'windows','toilet','ac'],
-    image: 'https://scontent-cgk2-2.xx.fbcdn.net/v/t39.30808-6/514666022_24178371841758105_2103298299982254235_n.jpg?stp=dst-jpg_p960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=dXQ7HjeMxlgQ7kNvwFEPOuP&_nc_oc=AdkwG2JmhxI5GcWq4untmZQnrK5dUW_twWtVjknrA3kXiF6k_7wOUHN-F4XMiTntC1z3nrlE2cx5xsv_yjBxdLdT&_nc_zt=23&_nc_ht=scontent-cgk2-2.xx&_nc_gid=IGiVXDyOtHog2nwKpzQofg&oh=00_AfQNypBEkoHdpr6Uro0d87KpdaJa-gL2d5KUVl_NjPwzaQ&oe=6885342A',
+    image: 'assets/pub1.jpg',
     openingHours: '10:00 - 22:00'
   },
   {
@@ -15,7 +15,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/LwEpTGv5DcAB5As98',
     rating: 4,
     amenities: ['wifi','power', 'windows','toilet'],
-    image: 'https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1IYHct.img?w=696&h=527&m=6',
+    image: 'assets/pub2.jpeg',
     openingHours: '08:00 - 18:30'
   },
   {
@@ -24,7 +24,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/shw8ECzdmWhQcFZ99',
     rating: 4,
     amenities: ['wifi','power', 'windows','toilet','ac'],
-    image: 'https://www.gaysornvillage.com/wp-content/uploads/2024/05/099A4888.webp',
+    image: 'assets/pub3.webp',
     openingHours: '08:00 - 19:00'
   },
   {
@@ -33,7 +33,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/dNWxkY78XDpd5R1V9',
     rating: 4,
     amenities: ['wifi','power', 'windows','toilet','quiet','ac'],
-    image: 'https://www.brandbuffet.in.th/wp-content/uploads/2019/08/Samyan-COOP-1.jpg',
+    image: 'assets/pub4.jpg',
     openingHours: '00:00 - 24:00'
   },
   {
@@ -42,7 +42,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/JZmczBmmLaRjp5jXA',
     rating: 3,
     amenities: ['wifi','power','toilet','quiet','ac'],
-    image: 'https://assets.brandinside.asia/uploads/2022/07/KLOUD-27.jpeg',
+    image: 'assets/pub5.webp',
     openingHours: '11:00 - 18:00'
   },
   {
@@ -51,7 +51,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/FVHpyFRp2aCwe8j18',
     rating: 3,
     amenities: ['wifi','power', 'windows','toilet','food','ac','kid','outdoor'],
-    image: 'https://img.wongnai.com/p/1920x0/2020/08/26/c86e6f7c1d7d4a47add4ef00ed35cb3e.jpg',
+    image: 'assets/pub6.webp',
     openingHours: '07:30 - 22:00'
   },
   {
@@ -60,7 +60,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/1JE1B24rsSQgpjNWA',
     rating: 3,
     amenities: ['wifi','power', 'windows','toilet','quiet','ac'],
-    image: 'https://img.wongnai.com/p/1920x0/2024/10/04/0d47b775e56e48cc95611f7454b027a2.jpg',
+    image: 'assets/pub7.webp',
     openingHours: '00:00 - 24:00'
   },
   {
@@ -69,7 +69,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/B2L6wRCBUUQBB4qs8',
     rating: 4,
     amenities: ['wifi','power', 'windows','toilet','ac'],
-    image: 'https://img.wongnai.com/p/1920x0/2023/06/25/51a12bf2bd4849479d4dc511fa5ee115.jpg',
+    image: 'assets/pub8.jpg',
     openingHours: '10:00 - 22:00'
   },
   {
@@ -78,7 +78,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/MfZ31JePvijRqUTf8',
     rating: 3,
     amenities: ['wifi','power', 'windows','toilet','ac','food'],
-    image: 'https://scontent-sin6-2.xx.fbcdn.net/v/t39.30808-6/468569231_18249987652277314_3109788871507353583_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=aCBUVosspUcQ7kNvwEeLjMP&_nc_oc=AdmkjqoYXBDN-sDvE9IJFEZQm7cnBZxKr3pt0JGxNT0lp2iOeAs2kJcb9MPuh9vU8uaLZk3xnjRv--JAXkOvFD5I&_nc_zt=23&_nc_ht=scontent-sin6-2.xx&_nc_gid=3bfcOiElG2n1Anoip0BJQw&oh=00_AfQ0opeuDmLZHXzKTlb88yNX8H_gRUsLpCxbvBz8vShl9A&oe=6884FDAE',
+    image: 'assets/pub9.webp',
     openingHours: '07:00 - 18:00'
   },
   {
@@ -87,7 +87,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/9KF8TBdhoJVTn9PZ8',
     rating: 4,
     amenities: ['wifi','power', 'windows','toilet','ac'],
-    image:'https://img.wongnai.com/p/1920x0/2023/06/20/32e3c2c72ec94fde97e884fabf52b510.jpg',
+    image: 'assets/pub10.jpg',
     openingHours: '08:00 - 22:00'
   },
   {
@@ -96,7 +96,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/RUjxt91ocigbCVR78',
     rating: 3,
     amenities: ['wifi','power', 'windows','toilet','ac'],
-    image: 'https://st-th-1.byteark.com/assets.punpro.com/contents/i9805/1596293811827-Starbucks_200801_0004.png',
+    image: 'assets/pub11.jpg',
     openingHours: '10:00 - 22:00'
   },
   {
@@ -105,7 +105,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/kakfgyXnxCPDbQGx7',
     rating: 3,
     amenities: ['power', 'windows','toilet','quiet','ac'],
-    image: 'https://img.wongnai.com/p/1920x0/2020/03/01/7dbb1baf2ded4d67850a922a16da6fe4.jpg',
+    image: 'assets/pub12.jpg',
     openingHours: '10:00 - 20:00'
   },
   {
@@ -114,7 +114,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/Q7i9Vs77iKcdfkeg6',
     rating: 3,
     amenities: ['wifi','power', 'windows','toilet','food','ac'],
-    image: 'https://img.wongnai.com/p/1920x0/2020/08/29/bd46e287f395432f84e67c4a86a40653.jpg',
+    image: 'assets/pub13.jpg',
     openingHours: '8:30 - 20:30'
   },
   {
@@ -123,7 +123,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/vEQUWMPD7Z4DRSi59',
     rating: 3,
     amenities: ['wifi','power', 'windows','toilet','ac'],
-    image: 'https://thesmartlocal.com/thailand/wp-content/uploads/2020/01/image1-16.jpg',
+    image: 'assets/pub14.webp',
     openingHours: '7:00 - 23:00'
   },
   {
@@ -132,7 +132,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/YyqjPNGnyRG2V4eS8',
     rating: 3,
     amenities: ['wifi','power','toilet','ac','quiet','kid','books'],
-    image: 'https://pbs.twimg.com/media/FCMSbYQVcAk9ebC?format=jpg&name=4096x4096',
+    image: 'assets/pub15.jpg',
     openingHours: '10:00 - 20:00'
   },
   {
@@ -141,7 +141,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/yHHApGWexDvqmDERA',
     rating: 3,
     amenities: ['wifi','power', 'windows','toilet','ac'],
-    image: 'https://d1ef7ke0x2i9g8.cloudfront.net/hong-kong/_1200x630_fit_center-center_82_none/Entrance-view-on-the-ground-level_2024-11-28-035548_fsln.jpg?mtime=1732766159',
+    image: 'assets/pub16.jpg',
     openingHours: '7:00 - 22:00'
   },
   {
@@ -150,7 +150,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/RUjxt91ocigbCVR78',
     rating: 3,
     amenities: ['wifi','power','toilet','ac'],
-    image: 'https://www.prachachat.net/wp-content/uploads/2018/06/Starbucks-24_-31.jpeg',
+    image: 'assets/pub17.jpg',
     openingHours: '10:00 - 22:00'
   },
   {
@@ -159,7 +159,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/9swmZRzbpfV6xth96',
     rating: 3,
     amenities: ['wifi','power','toilet','ac'],
-    image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/61/4e/b0/photo2jpg.jpg?w=900&h=500&s=1',
+    image: 'assets/pub18.jpg',
     openingHours: '10:00 - 22:00'
   },
   {
@@ -168,7 +168,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/MTP1UjazmcaJ7CV7A',
     rating: 3,
     amenities: ['wifi','toilet','food','ac','outdoor','windows'],
-    image: 'https://gurulist.net/img/address/1207.jpeg',
+    image: 'assets/pub19.jpg',
     openingHours: '08:00 - 01:00'
   },
   {
@@ -177,7 +177,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/duuRTPiqpuzUvr4v9',
     rating: 3,
     amenities: ['wifi','power','toilet','quiet','ac','windows'],
-    image: 'https://media.timeout.com/images/104713011/image.jpg',
+    image: 'assets/pub20.jpg',
     openingHours: '09:30 - 20:00'
   },
   {
@@ -186,7 +186,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/VYAEErMM9L5XfquU8',
     rating: 4,
     amenities: ['wifi','power','toilet','ac','outdoor','windows','kid'],
-    image: 'https://images.prestigeonline.com/wp-content/uploads/sites/8/2023/02/03114836/ECOLEDUCDSSE-2_1-1348x900.jpg',
+    image: 'assets/pub21.jpg',
     openingHours: '07:00 - 18:00'
   },
   {
@@ -195,7 +195,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/TKc1yr2P7GwxjvDr7',
     rating: 3,
     amenities: ['wifi','power','toilet','ac'],
-    image: 'https://dinstudio.co/wp-content/uploads/2023/11/ROOTS-RTW_02A.jpg',
+    image: 'assets/pub22.jpg',
     openingHours: '08:00 - 19:00'
   },
   {
@@ -204,7 +204,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/WHkw7jhd64sS6Ut6A',
     rating: 4,
     amenities: ['wifi','toilet','food','ac','outdoor','windows'],
-    image: 'https://dsignsomething.com/wp-content/uploads/2016/03/img_9273.jpg',
+    image: 'assets/pub23.jpg',
     openingHours: '08:00 - 01:00'
   },
   {
@@ -213,7 +213,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/ZDjadEeH3rPisdNj9',
     rating: 3,
     amenities: ['wifi','power','toilet','food','ac','windows'],
-    image: 'https://cdn.marketingoops.com/wp-content/uploads/2023/11/IKEA-Sukhumvit-Restaurant_9.jpg',
+    image: 'assets/pub24.jpg',
     openingHours: '10:00 - 21:30'
   },
   {
@@ -222,7 +222,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/Yq36tipxhSJKbPAs9',
     rating: 3,
     amenities: ['wifi','power','toilet','ac','windows'],
-    image: 'https://routeen.co/wp-content/uploads/2024/02/IMG_2580-scaled.jpg',
+    image: 'assets/pub25.jpg',
     openingHours: '08:30 - 24:00'
   },
   {
@@ -231,7 +231,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/KRU6gZWLjHsNcUCSA',
     rating: 3,
     amenities: ['wifi','power','toilet','food','ac','windows'],
-    image: 'https://img.wongnai.com/p/1920x0/2021/09/17/923350c8b99045e8b47c326cda8c58de.jpg',
+    image: 'assets/pub26.jpg',
     openingHours: '07:00 - 18:00'
   },
   {
@@ -240,7 +240,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/GhTLn8XUMNU2CarQ9',
     rating: 3,
     amenities: ['wifi','power','toilet','ac','windows','outdoor'],
-    image: 'https://cdn.prod.website-files.com/64b6780f84d27e4bfd91f2d6/6755c60edbde22bab5d8596a_starbucks-samyan-mitrtown-bangkok.webp',
+    image: 'assets/pub27.webp',
     openingHours: '00:00 - 24:00'
   },
   {
@@ -249,7 +249,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/WyEUuTdVX2gPTLLGA',
     rating: 2,
     amenities: ['wifi','power','toilet','food','ac','windows'],
-    image: 'https://eventbanana.blob.core.windows.net/venueimagecontainer/wpmh9q9xhsxdynk1mxwv_hNonew600_fill',
+    image: 'assets/pub28.jpg',
     openingHours: '09:00 - 20:00'
   },
   {
@@ -258,7 +258,7 @@ const publicCafes = [
     location: 'hhttps://maps.app.goo.gl/cCNeXefUFEm5SuPp7',
     rating: 3,
     amenities: ['wifi','power','toilet','windows','ac'],
-    image: 'https://www.japaikin.com/wp-content/uploads/2018/12/true-coffee-siam-cafe-02.jpg',
+    image: 'assets/pub29.jpg',
     openingHours: '07:00 - 20:00'
   },
   {
@@ -267,7 +267,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/3DCpMg32aTmMsX4g9',
     rating: 3,
     amenities: ['wifi','power','toilet','windows','ac'],
-    image: 'https://img.wongnai.com/p/1920x0/2022/04/17/8de1e613ad334965af6cae9a649aa8b8.jpg',
+    image: 'assets/pub30.jpg',
     openingHours: '00:00 - 24:00'
   },
   {
@@ -276,7 +276,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/pmiuZUvJxjukGymS6',
     rating: 3,
     amenities: ['wifi','power','toilet','ac','windows'],
-    image: 'https://cea-design-week-cdn.5lab.co/wp-content/uploads/2021/12/16171102/161220211639649461.png',
+    image: 'assets/pub31.png',
     openingHours: '08:00 - 17:00'
   },
   {
@@ -285,7 +285,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/FZCTFC5sc2CSUSbJ8',
     rating: 3,
     amenities: ['wifi','power','toilet','windows','ac'],
-    image: 'https://www.prachachat.net/wp-content/uploads/2017/12/Starbucks_Flagship_Store_8_2000x1333.jpg',
+    image: 'assets/pub32.jpg',
     openingHours: '07:00 - 22:00'
   },
   {
@@ -294,7 +294,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/F7o5aXj8cMxZL8ySA',
     rating: 3,
     amenities: ['wifi','power','toilet','windows','ac'],
-    image: 'https://art4d.com/wp-content/uploads/2024/05/Tom-Hortons-MBK_low-res.jpg',
+    image: 'assets/pub33.jpg',
     openingHours: '07:00 - 24:00'
   },
   {
@@ -303,7 +303,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/4VXThyKevjPTvJU6A',
     rating: 3,
     amenities: ['wifi','power','toilet','food','ac','windows'],
-    image: 'https://urbancreature.co/wp-content/uploads/2024/03/UC-plantworkshopcafe_6-1024x683.jpg',
+    image: 'assets/pub34.jpg',
     openingHours: '10:00 - 19:00'
   },
   {
@@ -312,7 +312,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/ccBhRuEU41ez2asN6',
     rating: 3,
     amenities: ['wifi','power','toilet','windows','ac','outdoor'],
-    image: 'https://goohiw.com/wp-content/uploads/2021/02/review-starbucks-reserve-chao-phraya-riverfront-at-iconsiam-7th-23.jpg',
+    image: 'assets/pub35.jpg',
     openingHours: '10:00 - 22:00'
   },
   {
@@ -321,7 +321,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/T9m5hpjm4SmNSe44A',
     rating: 3,
     amenities: ['wifi','power','toilet','food','ac','windows'],
-    image: 'https://www.lemon8-app.com/seo/image?item_id=7424380214614196753&index=8&sign=2208c68967c2476558e48cd50b4ad3f4',
+    image: 'assets/pub36.jpeg',
     openingHours: '07:00 - 18:00'
   },
   {
@@ -330,7 +330,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/MgzMKGSA8ixD8qKi7',
     rating: 3,
     amenities: ['wifi','power','toilet','ac','windows'],
-    image: 'https://pbs.twimg.com/media/DQRzbGuVwAEzMh5.jpg:large',
+    image: 'assets/pub37.jpg',
     openingHours: '10:00 - 20:00'
   },
   {
@@ -339,7 +339,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/bUzhQi6TdM6DCSvj9',
     rating: 3,
     amenities: ['wifi','power','toilet','ac','windows'],
-    image: 'https://img.wongnai.com/p/1920x0/2023/07/28/89bcff3fb79743048b12ae3e84ad826e.jpg',
+    image: 'assets/pub38.jpg',
     openingHours: '00:00 - 24:00'
   },
   {
@@ -348,7 +348,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/5ZRREGm4nRAZHZ419',
     rating: 3,
     amenities: ['power','toilet','ac','windows'],
-    image: 'https://www.globe.co.th/wp-content/uploads/2025/04/casalapinrachatewibangkokentrance.jpg',
+    image: 'assets/pub39.jpg',
     openingHours: '06:30 - 18:30'
   },
   {
@@ -357,7 +357,7 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/qP5KtHs55Yp7AvMXA',
     rating: 3,
     amenities: ['wifi','power','toilet','ac'],
-    image: 'https://tamagofreemag.com/wp-content/uploads/2024/10/Naixue-flagship-store-CTW-04.jpg',
+    image: 'assets/pub40.jpg',
     openingHours: '10:00 - 22:00'
   },
   {
@@ -366,9 +366,36 @@ const publicCafes = [
     location: 'https://maps.app.goo.gl/X2Rw3jadQ9DoxqSr6',
     rating: 2,
     amenities: ['toilet','ac'],
-    image: 'https://www.bkkmenu.com/files/2022/09/TheFoodSchoolBangkok_CafeArea.jpg',
+    image: 'assets/pub41.jpg',
     openingHours: '08:30 - 18:00'
-  }
+  },
+  {
+    id: 'pub42',
+    name: 'OKONOMI Central Embassy',
+    location: 'https://maps.app.goo.gl/jyNW3EKsq1AX3FTq7',
+    rating: 3,
+    amenities: ['wifi','power','toilet','ac','windows','food'],
+    image: 'assets/pub42.jpg',
+    openingHours: '10:00 - 21:00'
+  },
+  {
+    id: 'pub43',
+    name: 'TCDC Bangkok, Thailand Creative & Design Center',
+    location: 'https://maps.app.goo.gl/nYrawPVMrXgfwxfu7',
+    rating: 3,
+    amenities: ['wifi','power','toilet','ac','quiet'],
+    image: 'assets/pub43.jpg',
+    openingHours: '10:30 - 19:00'
+  },
+  {
+    id: 'pub44',
+    name: 'Art Library, Bangkok Art and Culture Centre',
+    location: 'https://maps.app.goo.gl/GdBscdxzCd1ch5SLA',
+    rating: 2,
+    amenities: ['wifi','power','toilet','ac','windows','quiet'],
+    image: 'assets/pub44.webp',
+    openingHours: '10:00 - 19:00'
+  },
 ];
 
 // Utility: Use UIController's methods for consistent card rendering
