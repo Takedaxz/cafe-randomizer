@@ -396,6 +396,24 @@ const publicCafes = [
     image: 'assets/pub44.webp',
     openingHours: '10:00 - 19:00'
   },
+  {
+    id: 'pub45',
+    name: 'Starbucks Langsuan',
+    location: 'https://maps.app.goo.gl/TV9ot3xhc7uAHrtT7',
+    rating: 3,
+    amenities: ['wifi','power','toilet','ac','windows','quiet'],
+    image: 'assets/pub45.webp',
+    openingHours: '06:30 - 22:00'
+  },
+  {
+    id: 'pub46',
+    name: 'Starbucks The Mercury Ville',
+    location: 'https://maps.app.goo.gl/7Hx2EeQEJk6dA5BR7',
+    rating: 2,
+    amenities: ['wifi','power','toilet','ac','windows','quiet'],
+    image: 'assets/pub46.webp',
+    openingHours: '06:30 - 21:00'
+  }
 ];
 
 // Utility: Use UIController's methods for consistent card rendering
