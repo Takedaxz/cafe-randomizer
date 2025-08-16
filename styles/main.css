@@ -1742,3 +1742,42 @@ select:focus {
   color: #fffbe9;
 }
 
+.cafe-form textarea, .form-group textarea {
+  width: 100%;
+  padding: var(--space-3);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  background: var(--input-bg);
+  color: var(--text-primary);
+  font-family: inherit;
+  resize: vertical;
+  min-height: 2.5em;
+  transition: var(--transition-fast);
+}
+.cafe-form textarea:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.1);
+}
+
+.cafe-notes {
+  margin-top: 0.5em;
+  color: var(--text-secondary);
+  font-size: 1em;
+  font-style: italic;
+  word-break: break-word;
+  white-space: pre-line;
+}
+[data-theme="dark"] .cafe-notes {
+  color: #e0e0e0;
+}
+[data-theme="dark"] .cafe-form textarea, [data-theme="dark"] .form-group textarea {
+  background: var(--input-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+[data-theme="dark"] .form-group label {
+  color: var(--text-primary);
+}
+

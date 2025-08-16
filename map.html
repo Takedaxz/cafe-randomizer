@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Café Map | Café Randomizer</title>
+  <link rel="stylesheet" href="styles/main.css?v=2">
+  <link rel="icon" href="src/icon.png" type="image/x-icon">
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map { height: 70vh; width: 100%; border-radius: var(--radius-lg); margin: 2rem 0; }
+    .leaflet-popup-content { font-size: 1.05rem; }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <h1 class="app-title"><a href="index.html" style="text-decoration: none; color: inherit;">Café Randomizer</a></h1>
+      <div class="header-links">
+        <a href="index.html" class="header-link">Home</a>
+        <a href="randomizer.html" class="header-link">Randomizer</a>
+        <a href="all-cafes.html" class="header-link">All Cafés</a>
+        <a href="map.html" class="header-link active">Map</a>
+        <button class="header-link settings-btn" aria-label="Settings">Settings</button>
+      </div>
+    </header>
+    <main>
+      <section style="text-align:center; margin-top:2rem;">
+        <h2>Find Your Cafés on the Map</h2>
+        <p>All your saved cafés are shown as pins. Click a pin to view or edit details.</p>
+        <p>Still working on this page ;)</p>
+      </section>
+      <!-- <div id="map"></div> -->
+    </main>
+    <footer class="app-footer">
+      <div>© 2025 Café Randomizer by takedaxz</div>
+      <div class="footer-links">
+        <a href="https://github.com/takedaxz" target="_blank" rel="noopener">GitHub</a>
+        <span>·</span>
+        <a href="mailto:pattaradanait@outlook.com">Email</a>
+      </div>
+    </footer>
+    <!-- Settings Modal and How to Modal will be injected by JS -->
+  </div>
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="scripts/allCafes.js"></script>
+  <script>
+    // Initialize Leaflet map
+    const map = L.map('map').setView([13.7563, 100.5018], 12); // Bangkok
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Add public cafes as markers
+    (window.publicCafes || []).forEach(cafe => {
+      if (typeof cafe.latitude === 'number' && typeof cafe.longitude === 'number') {
+        const marker = L.marker([cafe.latitude, cafe.longitude]).addTo(map);
+        let amenities = (cafe.amenities||[]).map(a => `<span class='amenity-badge'>${a}</span>`).join(' ');
+        let rating = cafe.rating ? '★'.repeat(cafe.rating) + '☆'.repeat(5 - cafe.rating) : '';
+        marker.bindPopup(
+          `<b>${cafe.name}</b><br>${rating}<br>${amenities}<br><a href='${cafe.location}' target='_blank'>Open in Maps</a>`
+        );
+      }
+    });
+  </script>
+  <script src="scripts/app.js"></script>
+</body>
+</html>

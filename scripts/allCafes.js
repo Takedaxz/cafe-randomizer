@@ -7,7 +7,9 @@ const publicCafes = [
     rating: 4,
     amenities: ['wifi', 'food','power', 'windows','toilet','ac'],
     image: 'assets/pub1.jpg',
-    openingHours: '10:00 - 22:00'
+    openingHours: '10:00 - 22:00',
+    latitude: 13.7466,
+    longitude: 100.5285
   },
   {
     id: 'pub2',
@@ -16,7 +18,9 @@ const publicCafes = [
     rating: 4,
     amenities: ['wifi','power', 'windows','toilet'],
     image: 'assets/pub2.jpeg',
-    openingHours: '08:00 - 18:30'
+    openingHours: '08:00 - 18:30',
+    latitude: 13.7516,
+    longitude: 100.5282
   },
   {
     id: 'pub3',
@@ -25,7 +29,9 @@ const publicCafes = [
     rating: 4,
     amenities: ['wifi','power', 'windows','toilet','ac'],
     image: 'assets/pub3.webp',
-    openingHours: '08:00 - 19:00'
+    openingHours: '08:00 - 19:00',
+    latitude: 13.7446,
+    longitude: 100.5402
   },
   {
     id: 'pub4',
@@ -34,7 +40,9 @@ const publicCafes = [
     rating: 4,
     amenities: ['wifi','power', 'windows','toilet','quiet','ac'],
     image: 'assets/pub4.jpg',
-    openingHours: '00:00 - 24:00'
+    openingHours: '00:00 - 24:00',
+    latitude: 13.7322,
+    longitude: 100.5286
   },
   {
     id: 'pub5',
@@ -43,7 +51,9 @@ const publicCafes = [
     rating: 3,
     amenities: ['wifi','power','toilet','quiet','ac'],
     image: 'assets/pub5.webp',
-    openingHours: '11:00 - 18:00'
+    openingHours: '11:00 - 18:00',
+    latitude: 13.7291,
+    longitude: 100.5342
   },
   {
     id: 'pub6',
@@ -52,7 +62,9 @@ const publicCafes = [
     rating: 3,
     amenities: ['wifi','power', 'windows','toilet','food','ac','kid','outdoor'],
     image: 'assets/pub6.webp',
-    openingHours: '07:30 - 22:00'
+    openingHours: '07:30 - 22:00',
+    latitude: 13.8031,
+    longitude: 100.5732
   },
   {
     id: 'pub7',
@@ -61,7 +73,9 @@ const publicCafes = [
     rating: 3,
     amenities: ['wifi','power', 'windows','toilet','quiet','ac'],
     image: 'assets/pub7.webp',
-    openingHours: '00:00 - 24:00'
+    openingHours: '00:00 - 24:00',
+    latitude: 13.7367,
+    longitude: 100.5282
   },
   {
     id: 'pub8',
@@ -70,7 +84,9 @@ const publicCafes = [
     rating: 4,
     amenities: ['wifi','power', 'windows','toilet','ac'],
     image: 'assets/pub8.jpg',
-    openingHours: '10:00 - 22:00'
+    openingHours: '10:00 - 22:00',
+    latitude: 13.7447,
+    longitude: 100.5461
   },
   {
     id: 'pub9',
@@ -79,7 +95,9 @@ const publicCafes = [
     rating: 3,
     amenities: ['wifi','power', 'windows','toilet','ac','food'],
     image: 'assets/pub9.webp',
-    openingHours: '07:00 - 18:00'
+    openingHours: '07:00 - 18:00',
+    latitude: 13.7372,
+    longitude: 100.5601
   },
   {
     id: 'pub10',
@@ -88,7 +106,9 @@ const publicCafes = [
     rating: 4,
     amenities: ['wifi','power', 'windows','toilet','ac'],
     image: 'assets/pub10.jpg',
-    openingHours: '08:00 - 22:00'
+    openingHours: '08:00 - 22:00',
+    latitude: 13.7442,
+    longitude: 100.5607
   },
   {
     id: 'pub11',
@@ -666,3 +686,4 @@ document.addEventListener('DOMContentLoaded', () => {
     console.warn('[DEBUG] CafeManager, Randomizer, or UIController not found on window!');
   }
 }); 
+window.publicCafes = publicCafes; 

@@ -295,11 +295,13 @@ class UIController {
         const locationInput = form.querySelector('#cafe-location');
         const ratingSelect = form.querySelector('#cafe-rating');
         const openingHoursInput = form.querySelector('#cafe-openingHours');
+        const notesInput = form.querySelector('#cafe-notes');
 
         if (nameInput) nameInput.value = cafeData.name || '';
         if (locationInput) locationInput.value = cafeData.location || '';
         if (ratingSelect) ratingSelect.value = cafeData.rating || 5;
         if (openingHoursInput) openingHoursInput.value = cafeData.openingHours || '';
+        if (notesInput) notesInput.value = cafeData.notes || '';
 
         // Set amenities checkboxes
         const amenityCheckboxes = form.querySelectorAll('input[name="amenities"]');
@@ -318,6 +320,7 @@ class UIController {
         const name = formData.get('name')?.trim();
         const location = formData.get('location')?.trim();
         const openingHours = formData.get('openingHours')?.trim();
+        const notes = formData.get('notes')?.trim();
 
         // Limit cafe name length
         const MAX_NAME_LENGTH = 40;
@@ -343,7 +346,7 @@ class UIController {
             location: location,
             rating: parseInt(formData.get('rating')) || 5,
             amenities: amenities,
-            notes: '', // Could add notes field later
+            notes: notes || '',
         };
         if (openingHours) {
             cafeData.openingHours = openingHours;
@@ -461,6 +464,7 @@ class UIController {
                     ${cafe.openingHours ? `<div class='cafe-opening-hours'>${openStatus}</div>` : ''}
                     ${rating ? `<div class="rating"><span class="stars">${rating}</span></div>` : ''}
                     ${amenities ? `<div class="amenities">${amenities}</div>` : ''}
+                    ${cafe.notes ? `<div class="cafe-notes" style="margin-top:0.5em;color:var(--text-secondary);font-size:0.98em;"><strong>📝 Notes:</strong> ${this.escapeHtml(cafe.notes)}</div>` : ''}
                 </div>
                 <div class="card-footer">
                     <a href="${this.isUrl(cafe.location) ? this.normalizeUrl(cafe.location) : `https://maps.google.com/?q=${encodeURIComponent(cafe.location)}`}" 
@@ -658,6 +662,31 @@ class UIController {
     }
 }
 
+/**
+ * Render user cafés as markers on a Leaflet map.
+ * @param {L.Map} map - The Leaflet map instance.
+ * @param {Array} cafes - Array of café objects.
+ * @param {Function} onEdit - Callback when Edit is clicked, receives cafe object.
+ */
+function renderCafeMarkersOnMap(map, cafes, onEdit) {
+  if (!window.L || !map) return;
+  cafes.forEach(cafe => {
+    if (cafe.latitude && cafe.longitude) {
+      const marker = L.marker([cafe.latitude, cafe.longitude]).addTo(map);
+      let notes = cafe.notes ? `<div style='margin-top:0.5em; color:#888;'>${cafe.notes}</div>` : '';
+      marker.bindPopup(
+        `<b>${cafe.name}</b>${notes}<br><button class='edit-cafe-btn' data-cafe-id='${cafe.id}'>Edit</button>`
+      );
+      marker.on('popupopen', function() {
+        setTimeout(() => {
+          const btn = document.querySelector('.edit-cafe-btn[data-cafe-id="' + cafe.id + '"]');
+          if (btn) btn.onclick = () => onEdit(cafe);
+        }, 100);
+      });
+    }
+  });
+}
+
 // Add slideOut animation to CSS
 const style = document.createElement('style');
 style.textContent = `
@@ -672,7 +701,4 @@ style.textContent = `
         }
     }
 `;
-document.head.appendChild(style);
-
-// Export for use in other modules
-window.UIController = UIController; 
+document.head.appendChild(style); 

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Randomizer</title>
+    <link rel="stylesheet" href="styles/main.css?v=2">
+    <link rel="icon" href="src/icon.png" type="image/x-icon">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <h1 class="app-title"><a href="index.html" style="text-decoration: none; color: inherit;">Café Randomizer</a></h1>
+            <div class="header-links">
+                <a href="index.html" class="header-link">Home</a>
+                <a href="randomizer.html" class="header-link">Randomizer</a>
+                <a href="all-cafes.html" class="header-link">All Cafés</a>
+                <a href="map.html" class="header-link">Map</a>
+                <button class="header-link settings-btn" aria-label="Settings">Settings</button>
+            </div>
+        </header>
+        <div class="concept-intro decorated-intro">
+            <strong>Café Randomizer</strong> helps remote workers and coffee lovers quickly decide where to work or relax next!<br>
+            Add your favorite cafés, shuffle for a random pick, and manage your list with ease.<br>
+            <span style="color:#ee6c08;">Break decision fatigue and discover new spots!</span>
+        </div>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Shuffle Section -->
+            <section class="shuffle-section">
+                <div class="shuffle-btn-container">
+                    <button class="shuffle-btn primary-btn" id="shuffle-btn">
+                        <span class="shuffle-icon">🎲</span>
+                        <span class="shuffle-text">Shuffle</span>
+                    </button>
+                </div>
+                <div class="result-display" id="result-display"></div>
+            </section>
+            <!-- Café List Section -->
+            <section class="cafe-list-section">
+                <div class="list-header">
+                    <h2>My Cafés</h2>
+                    <button class="add-cafe-btn secondary-btn" id="add-cafe-btn">+ Add Café</button>
+                </div>
+                <div class="cafe-grid" id="cafe-grid"></div>
+            </section>
+        </main>
+        <!-- Add/Edit Modal -->
+        <div class="modal" id="cafe-modal" hidden>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-title">Add New Café</h3>
+                    <button class="modal-close" id="modal-close" aria-label="Close">×</button>
+                </div>
+                <form class="cafe-form" id="cafe-form">
+                    <div class="form-group">
+                        <label for="cafe-name">Café Name *</label>
+                        <input type="text" id="cafe-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cafe-location">Location *</label>
+                        <input type="text" id="cafe-location" name="location" required 
+                               placeholder="Address or direct link (Google Maps, Apple Maps, etc.)">
+                        <small class="form-hint">💡 You can enter an address or paste a direct link to maps</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="cafe-rating">Rating</label>
+                        <select id="cafe-rating" name="rating">
+                            <option value="1">1 Star</option>
+                            <option value="2">2 Stars</option>
+                            <option value="3">3 Stars</option>
+                            <option value="4">4 Stars</option>
+                            <option value="5" selected>5 Stars</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cafe-openingHours">Opening Hours</label>
+                        <input type="text" id="cafe-openingHours" name="openingHours" placeholder="e.g. 08:00 - 18:30">
+                        <small class="form-hint">Format: 08:00 - 18:30 (optional)</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="cafe-notes">Notes/Review</label>
+                        <textarea id="cafe-notes" name="notes" rows="2" placeholder="e.g. Great Wi-Fi, but crowded on weekends"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="cafe-amenities">Amenities</label>
+                        <div class="amenities-row" id="cafe-amenities">
+                            <label class="amenity-pill">
+                                <input type="checkbox" name="amenities" value="wifi">
+                                <span>📶 Wi-Fi</span>
+                            </label>
+                            <label class="amenity-pill">
+                                <input type="checkbox" name="amenities" value="power">
+                                <span>🔌 Power Outlets</span>
+                            </label>
+                            <label class="amenity-pill">
+                                <input type="checkbox" name="amenities" value="quiet">
+                                <span>🤫 Quiet</span>
+                            </label>
+                            <label class="amenity-pill">
+                                <input type="checkbox" name="amenities" value="food">
+                                <span>🍽️ Food</span>
+                            </label>
+                            <label class="amenity-pill">
+                                <input type="checkbox" name="amenities" value="toilet">
+                                <span>🚻 Toilet</span>
+                            </label>
+                            <label class="amenity-pill">
+                                <input type="checkbox" name="amenities" value="windows">
+                                <span>🪟 Windows</span>
+                            </label>
+                            <label class="amenity-pill">
+                                <input type="checkbox" name="amenities" value="outdoor">
+                                <span>🌳 Outdoor Seating</span>
+                            </label>
+                            <label class="amenity-pill">
+                                <input type="checkbox" name="amenities" value="pet">
+                                <span>🐶 Pet Friendly</span>
+                            </label>
+                            <label class="amenity-pill">
+                                <input type="checkbox" name="amenities" value="parking">
+                                <span>🅿️ Parking</span>
+                            </label>
+                            <label class="amenity-pill">
+                                <input type="checkbox" name="amenities" value="ac">
+                                <span>❄️ Air Conditioning</span>
+                            </label>
+                            <label class="amenity-pill">
+                                <input type="checkbox" name="amenities" value="vegan">
+                                <span>🥗 Vegan Options</span>
+                            </label>
+                            <label class="amenity-pill">
+                                <input type="checkbox" name="amenities" value="accessible">
+                                <span>♿ Wheelchair Accessible</span>
+                            </label>
+                            <label class="amenity-pill">
+                                <input type="checkbox" name="amenities" value="kid">
+                                <span>👶 Kid Friendly</span>
+                            </label>
+                            <label class="amenity-pill">
+                                <input type="checkbox" name="amenities" value="music">
+                                <span>🎶 Live Music</span>
+                            </label>
+                            <label class="amenity-pill">
+                                <input type="checkbox" name="amenities" value="books">
+                                <span>📚 Books/Library</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="danger-btn" id="delete-cafe-btn"">Delete</button>
+                        <button type="button" class="secondary-btn" id="cancel-btn">Cancel</button>
+                        <button type="submit" class="primary-btn">Save Café</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Modal Overlay -->
+        <div class="modal-overlay" id="modal-overlay" hidden></div>
+        <!-- How to Use Modal -->
+        <div class="modal" id="howto-modal" hidden>
+          <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+              <h3>How to Use</h3>
+              <button class="modal-close" id="howto-close" aria-label="Close">×</button>
+            </div>
+            <div class="modal-body" style="padding: 2rem; text-align: left;">
+              <ol style="margin-bottom: 1.5rem;">
+                <li><strong>Add cafés</strong> you like using the <b>+ Add Café</b> button.</li>
+                <li>Click <b>Shuffle</b> to get a random suggestion from your list.</li>
+                <li>Use the <b>eye</b> button to temporarily hide a café from the shuffle.</li>
+                <li>Edit or delete cafés anytime from your list.</li>
+                <li>All your data is saved in your browser (no account needed).</li>
+              </ol>
+              <label style="display: flex; align-items: center; gap: 0.5em;">
+                <input type="checkbox" id="howto-dontshow"> Don't show this again
+              </label>
+            </div>
+          </div>
+        </div>
+    </div>
+    <footer class="app-footer">
+      <div>
+        © 2025 Café Randomizer by takedaxz
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/takedaxz" target="_blank" rel="noopener">GitHub</a>
+        <span>·</span>
+        <a href="mailto:pattaradanait@outlook.com">Email</a>
+      </div>
+    </footer>
+    <script src="scripts/database.js"></script>
+    <script src="scripts/cafeManager.js"></script>
+    <script src="scripts/randomizer.js"></script>
+    <script src="scripts/uiController.js"></script>
+    <script src="scripts/performance.js"></script>
+    <script src="scripts/accessibility.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+</html>
