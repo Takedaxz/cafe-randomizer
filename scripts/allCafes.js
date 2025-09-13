@@ -71,7 +71,7 @@ const publicCafes = [
     name: 'Oasis Coffee Chula',
     location: 'https://maps.app.goo.gl/1JE1B24rsSQgpjNWA',
     rating: 3,
-    amenities: ['wifi','power', 'windows','toilet','quiet','ac'],
+    amenities: ['wifi','power', 'windows','quiet','ac'],
     image: 'assets/pub7.webp',
     openingHours: '00:00 - 24:00',
     latitude: 13.7367,
@@ -433,7 +433,43 @@ const publicCafes = [
     amenities: ['wifi','power','toilet','ac','windows','quiet'],
     image: 'assets/pub46.webp',
     openingHours: '06:30 - 21:00'
-  }
+  },
+  {
+    id: 'pub47',
+    name: 'Vistacafé Verasu Wireless Road',
+    location: 'https://maps.app.goo.gl/Dhw8fvV76rTQ644NA',
+    rating: 4,
+    amenities: ['wifi','power','toilet','ac','windows','quiet'],
+    image: 'assets/pub47.jpg',
+    openingHours: '07:00 - 19:00'
+  },
+  {
+    id: 'pub48',
+    name: 'AIS eSports Studio',
+    location: 'https://maps.app.goo.gl/Ltvz64twPu2J2SQD6',
+    rating: 2,
+    amenities: ['wifi','power','toilet','ac'],
+    image: 'assets/pub48.jpg',
+    openingHours: '00:00 - 24:00'
+  },
+  {
+    id: 'pub49',
+    name: 'THE COFFEE CLUB - Wireless Road',
+    location: 'https://maps.app.goo.gl/7uP6wh77yQZ1eYkG6',
+    rating: 3,
+    amenities: ['wifi','power','toilet','ac','windows','food'],
+    image: 'assets/pub49.webp',
+    openingHours: '07:00 - 20:30'
+  },
+  {
+    id: 'pub50',
+    name: 'Starbucks Sindhorn Tower',
+    location: 'https://maps.app.goo.gl/fvJxwkyrBctWjk6G9',
+    rating: 3,
+    amenities: ['wifi','power','toilet','ac','windows'],
+    image: 'assets/pub50.jpg',
+    openingHours: '07:00 - 20:00'
+  },
 ];
 
 // Utility: Use UIController's methods for consistent card rendering
