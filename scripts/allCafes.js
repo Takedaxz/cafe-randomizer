@@ -470,6 +470,42 @@ const publicCafes = [
     image: 'assets/pub50.jpg',
     openingHours: '07:00 - 20:00'
   },
+  {
+    id: 'pub51',
+    name: 'BLUE CHÉRI COFFEE Ploenchit',
+    location: 'https://maps.app.goo.gl/tK1vxw8Q7ffmu2A97',
+    rating: 3,
+    amenities: ['wifi','power','toilet','ac','windows','food'],
+    image: 'assets/pub51.png',
+    openingHours: '07:00 - 18:00'
+  },
+  {
+    id: 'pub52',
+    name: 'The Coffee Academics Velaa Langsuan',
+    location: 'https://maps.app.goo.gl/NrYtvMhcCx6qMUJ38',
+    rating: 3,
+    amenities: ['wifi','power','toilet','ac','windows','food'],
+    image: 'assets/pub52.jpg',
+    openingHours: '07:00 - 22:00'
+  },
+  {
+    id: 'pub53',
+    name: 'CRAFT',
+    location: 'https://maps.app.goo.gl/H3FUv56pmRULxJwR7',
+    rating: 2,
+    amenities: ['wifi','toilet','ac','windows','food','outdoor'],
+    image: 'assets/pub53.jpg',
+    openingHours: '07:00 - 23:00'
+  },
+  {
+    id: 'pub54',
+    name: 'ALLO HOUSE',
+    location: 'https://maps.app.goo.gl/Ud5RGGgWBMs5i2Z68',
+    rating: 3,
+    amenities: ['wifi','power','toilet','ac','windows','food'],
+    image: 'assets/pub54.webp',
+    openingHours: '08:00 - 17:00'
+  },
 ];
 
 // Utility: Use UIController's methods for consistent card rendering
