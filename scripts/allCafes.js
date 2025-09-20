@@ -732,7 +732,7 @@ if (typeof window !== 'undefined') {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  renderPublicCafes();
+  renderPublicCafesWithFilters();
   // Modal close
   const modal = document.getElementById('public-cafe-modal');
   const closeBtn = document.getElementById('public-cafe-modal-close');
@@ -760,4 +760,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 }); 
-window.publicCafes = publicCafes; 
+window.publicCafes = publicCafes; 
