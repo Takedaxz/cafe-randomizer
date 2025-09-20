@@ -21,7 +21,7 @@ class DatabaseManager {
             const request = indexedDB.open(this.dbName, this.dbVersion);
 
             request.onerror = () => {
-                console.error('Failed to open database:', request.error);
+
                 this.isReady = false;
                 this.db = null;
                 reject(request.error);
@@ -30,7 +30,7 @@ class DatabaseManager {
             request.onsuccess = () => {
                 this.db = request.result;
                 this.isReady = true;
-                console.log('Database initialized successfully');
+
                 resolve();
             };
 
@@ -42,13 +42,13 @@ class DatabaseManager {
                     const cafesStore = db.createObjectStore('cafes', { keyPath: 'id' });
                     cafesStore.createIndex('name', 'name', { unique: false });
                     cafesStore.createIndex('location', 'location', { unique: false });
-                    console.log('Created cafes store');
+
                 }
 
                 // Create preferences store
                 if (!db.objectStoreNames.contains('preferences')) {
                     const preferencesStore = db.createObjectStore('preferences', { keyPath: 'key' });
-                    console.log('Created preferences store');
+
                 }
 
                 // Create history store
@@ -56,7 +56,7 @@ class DatabaseManager {
                     const historyStore = db.createObjectStore('history', { keyPath: 'id', autoIncrement: true });
                     historyStore.createIndex('cafeId', 'cafeId', { unique: false });
                     historyStore.createIndex('timestamp', 'timestamp', { unique: false });
-                    console.log('Created history store');
+
                 }
             };
         });
@@ -76,16 +76,16 @@ class DatabaseManager {
 
                 request.onsuccess = () => {
                     const cafes = request.result || [];
-                    console.log('Retrieved cafés:', cafes);
+
                     resolve(cafes);
                 };
 
                 request.onerror = () => {
-                    console.error('Error getting cafés:', request.error);
+
                     reject(request.error);
                 };
             } catch (error) {
-                console.error('Error in getCafes transaction:', error);
+
                 reject(error);
             }
         });
@@ -107,7 +107,7 @@ class DatabaseManager {
             };
 
             request.onerror = () => {
-                console.error('Error getting café:', request.error);
+
                 reject(request.error);
             };
         });
@@ -138,7 +138,7 @@ class DatabaseManager {
 
             const cafe = {
                 id: this.generateId(),
-                name: cafeData.name.trim(),
+                name: this.sanitizeInput(cafeData.name.trim()),
                 location: cafeData.location.trim(),
                 rating: parseInt(cafeData.rating) || 5,
                 amenities: Array.isArray(cafeData.amenities) ? cafeData.amenities : [],
@@ -146,18 +146,19 @@ class DatabaseManager {
                 isExcluded: false,
                 dateAdded: new Date().toISOString(),
                 lastVisited: null,
-                ...(cafeData.openingHours ? { openingHours: cafeData.openingHours } : {})
+                notes: cafeData.notes ? this.sanitizeInput(cafeData.notes.trim()) : '',
+                ...(cafeData.openingHours ? { openingHours: this.sanitizeInput(cafeData.openingHours.trim()) } : {})
             };
 
             const request = store.add(cafe);
 
             request.onsuccess = () => {
-                console.log('Café added successfully:', cafe);
+
                 resolve({ success: true, cafe });
             };
 
             request.onerror = () => {
-                console.error('Error adding café:', request.error);
+
                 reject({ success: false, error: request.error.message });
             };
         });
@@ -186,18 +187,18 @@ class DatabaseManager {
                 const updateRequest = store.put(updatedCafe);
 
                 updateRequest.onsuccess = () => {
-                    console.log('Café updated successfully:', updatedCafe);
+
                     resolve({ success: true, cafe: updatedCafe });
                 };
 
                 updateRequest.onerror = () => {
-                    console.error('Error updating café:', updateRequest.error);
+
                     reject({ success: false, error: updateRequest.error.message });
                 };
             };
 
             getRequest.onerror = () => {
-                console.error('Error getting café for update:', getRequest.error);
+
                 reject({ success: false, error: getRequest.error.message });
             };
         });
@@ -215,12 +216,12 @@ class DatabaseManager {
             const request = store.delete(id);
 
             request.onsuccess = () => {
-                console.log('Café deleted successfully');
+
                 resolve({ success: true });
             };
 
             request.onerror = () => {
-                console.error('Error deleting café:', request.error);
+
                 reject({ success: false, error: request.error.message });
             };
         });
@@ -249,12 +250,12 @@ class DatabaseManager {
                 if (!preferences.lastUsed) preferences.lastUsed = new Date().toISOString();
                 if (!preferences.totalSelections) preferences.totalSelections = 0;
                 
-                console.log('Retrieved preferences:', preferences);
+
                 resolve(preferences);
             };
 
             request.onerror = () => {
-                console.error('Error getting preferences:', request.error);
+
                 reject(request.error);
             };
         });
@@ -280,11 +281,11 @@ class DatabaseManager {
 
             Promise.all(promises)
                 .then(() => {
-                    console.log('Preferences updated successfully');
+
                     resolve({ success: true });
                 })
                 .catch(error => {
-                    console.error('Error updating preferences:', error);
+
                     reject({ success: false, error: error.message });
                 });
         });
@@ -308,12 +309,12 @@ class DatabaseManager {
             const request = store.add(historyEntry);
 
             request.onsuccess = () => {
-                console.log('History entry added successfully');
+
                 resolve({ success: true });
             };
 
             request.onerror = () => {
-                console.error('Error adding history entry:', request.error);
+
                 reject({ success: false, error: request.error.message });
             };
         });
@@ -334,12 +335,12 @@ class DatabaseManager {
                 const history = request.result || [];
                 // Sort by timestamp descending (newest first)
                 history.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-                console.log('Retrieved history:', history);
+
                 resolve(history);
             };
 
             request.onerror = () => {
-                console.error('Error getting history:', request.error);
+
                 reject(request.error);
             };
         });
@@ -361,21 +362,21 @@ class DatabaseManager {
             const deleteRequest = indexedDB.deleteDatabase(this.dbName);
             
             deleteRequest.onerror = () => {
-                console.error('Error deleting database:', deleteRequest.error);
+
                 reject(deleteRequest.error);
             };
 
             deleteRequest.onsuccess = () => {
-                console.log('Database deleted successfully');
+
                 
                 // Recreate the database
                 this.init()
                     .then(() => {
-                        console.log('Database reset and recreated successfully');
+
                         resolve({ success: true });
                     })
                     .catch(error => {
-                        console.error('Error recreating database:', error);
+
                         reject(error);
                     });
             };
@@ -414,11 +415,11 @@ class DatabaseManager {
                 })
             ])
             .then(() => {
-                console.log('All data cleared successfully');
+
                 resolve({ success: true });
             })
             .catch(error => {
-                console.error('Error clearing data:', error);
+
                 reject({ success: false, error: error.message });
             });
         });
@@ -445,10 +446,10 @@ class DatabaseManager {
                 history
             };
 
-            console.log('Data exported successfully');
+
             return JSON.stringify(exportData, null, 2);
         } catch (error) {
-            console.error('Error exporting data:', error);
+
             throw error;
         }
     }
@@ -484,10 +485,10 @@ class DatabaseManager {
                 }
             }
 
-            console.log('Data imported successfully');
+
             return { success: true };
         } catch (error) {
-            console.error('Error importing data:', error);
+
             return { success: false, error: error.message };
         }
     }
@@ -498,7 +499,19 @@ class DatabaseManager {
     generateId() {
         return Date.now().toString(36) + Math.random().toString(36).substr(2);
     }
+
+    /**
+     * Sanitize user input to prevent XSS
+     */
+    sanitizeInput(input) {
+        if (typeof input !== 'string') return input;
+        
+        // Use browser's DOM parser for safe HTML stripping
+        const temp = document.createElement('div');
+        temp.textContent = input;
+        return temp.textContent;
+    }
 }
 
 // Export for use in other modules
-window.DatabaseManager = DatabaseManager; 
+window.DatabaseManager = DatabaseManager; 

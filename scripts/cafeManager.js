@@ -18,9 +18,9 @@ class CafeManager {
         try {
             await this.database.init();
             this.isInitialized = true;
-            console.log('CafeManager initialized with database');
+
         } catch (error) {
-            console.error('Failed to initialize CafeManager:', error);
+
             throw error;
         }
     }
@@ -33,7 +33,7 @@ class CafeManager {
         try {
             return await this.database.getCafes();
         } catch (error) {
-            console.error('Error getting cafés:', error);
+
             return [];
         }
     }
@@ -46,7 +46,7 @@ class CafeManager {
         try {
             return await this.database.getCafe(id);
         } catch (error) {
-            console.error('Error getting café by ID:', error);
+
             return null;
         }
     }
@@ -64,12 +64,12 @@ class CafeManager {
     async addCafe(cafeData) {
         await this.init();
         try {
-            console.log('Adding café:', cafeData);
+
             const result = await this.database.addCafe(cafeData);
-            console.log('Add café result:', result);
+
             return result;
         } catch (error) {
-            console.error('Error adding café:', error);
+
             return { success: false, error: error.message };
         }
     }
@@ -80,12 +80,12 @@ class CafeManager {
     async updateCafe(id, updates) {
         await this.init();
         try {
-            console.log('Updating café:', id, updates);
+
             const result = await this.database.updateCafe(id, updates);
-            console.log('Update café result:', result);
+
             return result;
         } catch (error) {
-            console.error('Error updating café:', error);
+
             return { success: false, error: error.message };
         }
     }
@@ -96,12 +96,12 @@ class CafeManager {
     async deleteCafe(id) {
         await this.init();
         try {
-            console.log('Deleting café:', id);
+
             const result = await this.database.deleteCafe(id);
-            console.log('Delete café result:', result);
+
             return result;
         } catch (error) {
-            console.error('Error deleting café:', error);
+
             return { success: false, error: error.message };
         }
     }
@@ -118,7 +118,7 @@ class CafeManager {
             }
             return await this.updateCafe(id, { isFavorite: !cafe.isFavorite });
         } catch (error) {
-            console.error('Error toggling favorite:', error);
+
             return { success: false, error: error.message };
         }
     }
@@ -135,7 +135,7 @@ class CafeManager {
             }
             return await this.updateCafe(id, { isExcluded: !cafe.isExcluded });
         } catch (error) {
-            console.error('Error toggling excluded:', error);
+
             return { success: false, error: error.message };
         }
     }
@@ -149,7 +149,7 @@ class CafeManager {
             const cafes = await this.getCafes();
             return cafes.filter(cafe => !cafe.isExcluded);
         } catch (error) {
-            console.error('Error getting eligible cafés:', error);
+
             return [];
         }
     }
@@ -163,7 +163,7 @@ class CafeManager {
             const cafes = await this.getCafes();
             return cafes.filter(cafe => cafe.isFavorite);
         } catch (error) {
-            console.error('Error getting favorite cafés:', error);
+
             return [];
         }
     }
@@ -176,7 +176,7 @@ class CafeManager {
         try {
             return await this.updateCafe(id, { lastVisited: new Date().toISOString() });
         } catch (error) {
-            console.error('Error updating last visited:', error);
+
             return { success: false, error: error.message };
         }
     }
@@ -189,7 +189,7 @@ class CafeManager {
         try {
             return await this.database.getPreferences();
         } catch (error) {
-            console.error('Error getting preferences:', error);
+
             return {
                 theme: 'light',
                 lastUsed: new Date().toISOString(),
@@ -206,7 +206,7 @@ class CafeManager {
         try {
             return await this.database.updatePreferences(preferences);
         } catch (error) {
-            console.error('Error updating preferences:', error);
+
             return { success: false, error: error.message };
         }
     }
@@ -237,7 +237,7 @@ class CafeManager {
             
             return { success: true };
         } catch (error) {
-            console.error('Error importing cafés:', error);
+
             return { success: false, error: error.message };
         }
     }
@@ -250,7 +250,7 @@ class CafeManager {
         try {
             return await this.database.addToHistory(cafeId);
         } catch (error) {
-            console.error('Error adding to history:', error);
+
             return { success: false, error: error.message };
         }
     }
@@ -263,7 +263,7 @@ class CafeManager {
         try {
             return await this.database.getHistory();
         } catch (error) {
-            console.error('Error getting history:', error);
+
             return [];
         }
     }
@@ -276,7 +276,7 @@ class CafeManager {
         try {
             return await this.database.exportData();
         } catch (error) {
-            console.error('Error exporting data:', error);
+
             return null;
         }
     }
@@ -289,7 +289,7 @@ class CafeManager {
         try {
             return await this.database.importData(jsonData);
         } catch (error) {
-            console.error('Error importing data:', error);
+
             return { success: false, error: error.message };
         }
     }
@@ -302,7 +302,7 @@ class CafeManager {
         try {
             return await this.database.clearAllData();
         } catch (error) {
-            console.error('Error clearing data:', error);
+
             return { success: false, error: error.message };
         }
     }
@@ -314,7 +314,7 @@ class CafeManager {
         try {
             return await this.database.resetDatabase();
         } catch (error) {
-            console.error('Error resetting database:', error);
+
             return { success: false, error: error.message };
         }
     }
@@ -361,4 +361,4 @@ class CafeManager {
 }
 
 // Export for use in other modules
-window.CafeManager = CafeManager; 
+window.CafeManager = CafeManager; 

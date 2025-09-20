@@ -41,7 +41,7 @@ class Randomizer {
                 totalEligible: openCafes.length
             };
         } catch (error) {
-            console.error('Error in random selection:', error);
+
             return { success: false, error: error.message };
         }
     }
@@ -235,4 +235,4 @@ function isCafeOpenNow(openingHours) {
 }
 
 // Export for use in other modules
-window.Randomizer = Randomizer; 
+window.Randomizer = Randomizer; 

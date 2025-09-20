@@ -152,4 +152,4 @@ Café Randomizer was created to solve the common problem of decision fatigue whe
 
 ---
 
-**Built with ❤️ for the remote work community** 
+**Built with ❤️ for the remote work community** 

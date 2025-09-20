@@ -111,43 +111,7 @@
     <script src="scripts/accessibility.js"></script>
     <script src="scripts/app.js"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const settingsBtn = document.querySelector('.settings-btn');
-        console.log('[DEBUG] settingsBtn found:', !!settingsBtn, settingsBtn);
-        if (settingsBtn) {
-          settingsBtn.addEventListener('click', function() {
-            console.log('[DEBUG] settingsBtn clicked');
-          });
-        }
 
-        // Debug button centering
-        const ctaSection = document.querySelector('.cta-section');
-        const ctaButton = document.querySelector('.primary-btn');
-        console.log('[DEBUG] CTA Section found:', !!ctaSection, ctaSection);
-        console.log('[DEBUG] CTA Button found:', !!ctaButton, ctaButton);
-        
-        if (ctaSection) {
-          const computedStyle = window.getComputedStyle(ctaSection);
-          console.log('[DEBUG] CTA Section styles:', {
-            display: computedStyle.display,
-            justifyContent: computedStyle.justifyContent,
-            alignItems: computedStyle.alignItems,
-            textAlign: computedStyle.textAlign,
-            width: computedStyle.width,
-            margin: computedStyle.margin
-          });
-        }
-        
-        if (ctaButton) {
-          const buttonStyle = window.getComputedStyle(ctaButton);
-          console.log('[DEBUG] Button styles:', {
-            display: buttonStyle.display,
-            margin: buttonStyle.margin,
-            width: buttonStyle.width,
-            position: buttonStyle.position
-          });
-        }
-      });
     </script>
 </body>
-</html> 
+</html> 

@@ -17,7 +17,7 @@ class CafeRandomizerApp {
      */
     async init() {
         try {
-            console.log('🚀 Initializing Café Randomizer App...');
+
 
             // Initialize core modules
             this.cafeManager = new CafeManager();
@@ -36,11 +36,11 @@ class CafeRandomizerApp {
             // Mark as initialized
             this.isInitialized = true;
 
-            console.log('✅ Café Randomizer App initialized successfully');
+
             this.showWelcomeMessage();
 
         } catch (error) {
-            console.error('❌ Error initializing app:', error);
+
             this.showErrorMessage('Failed to initialize application. Please refresh the page.');
         }
     }
@@ -130,7 +130,7 @@ class CafeRandomizerApp {
      */
     async loadInitialData() {
         try {
-            console.log('📊 Loading initial data...');
+
             
             // Load preferences
             const preferences = await this.cafeManager.getPreferences();
@@ -145,9 +145,9 @@ class CafeRandomizerApp {
             // Show stats if available
             await this.updateStats();
             
-            console.log('✅ Initial data loaded successfully');
+
         } catch (error) {
-            console.error('❌ Error loading initial data:', error);
+
             this.showErrorMessage('Failed to load data. Please refresh the page.');
         }
     }
@@ -179,7 +179,7 @@ class CafeRandomizerApp {
                 }
             });
         } catch (error) {
-            console.error('Error updating stats:', error);
+            // Silently handle stats error
         }
     }
 
@@ -237,7 +237,6 @@ class CafeRandomizerApp {
             }
             
         } catch (error) {
-            console.error('Error showing settings:', error);
             this.showErrorMessage('Failed to load settings');
         }
     }
@@ -361,7 +360,7 @@ class CafeRandomizerApp {
 
             this.uiController.showNotification('Data exported successfully!', 'success');
         } catch (error) {
-            console.error('Export error:', error);
+
             this.uiController.showNotification('Failed to export data', 'error');
         }
     }
@@ -392,7 +391,6 @@ class CafeRandomizerApp {
                         await this.updateStats();
                         this.uiController.showNotification('Data imported successfully!', 'success');
                     } catch (error) {
-                        console.error('Import error:', error);
                         this.uiController.showNotification('Failed to import data. Invalid file format.', 'error');
                     }
                 };
@@ -413,7 +411,6 @@ class CafeRandomizerApp {
                 await this.updateStats();
                 this.uiController.showNotification('All data has been reset', 'success');
             } catch (error) {
-                console.error('Reset error:', error);
                 this.uiController.showNotification('Failed to reset data', 'error');
             }
         }
@@ -429,7 +426,7 @@ class CafeRandomizerApp {
                 this.uiController.showNotification('Welcome! Add your first café to get started.', 'info');
             }
         } catch (error) {
-            console.error('Error showing welcome message:', error);
+            // Silently handle welcome message error
         }
     }
 
@@ -475,4 +472,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Export for use in other modules
-window.CafeRandomizerApp = CafeRandomizerApp; 
+window.CafeRandomizerApp = CafeRandomizerApp; 

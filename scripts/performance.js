@@ -161,7 +161,7 @@ class PerformanceOptimizer {
      * Log performance metrics
      */
     logPerformance(operation, duration) {
-        console.log(`⏱️ ${operation}: ${duration.toFixed(2)}ms`);
+
         
         // Store in localStorage for analysis
         const perfLog = JSON.parse(localStorage.getItem('cafe-perf-log') || '[]');
@@ -333,4 +333,4 @@ class PerformanceOptimizer {
 }
 
 // Initialize performance optimizer
-const performanceOptimizer = new PerformanceOptimizer(); 
+const performanceOptimizer = new PerformanceOptimizer(); 

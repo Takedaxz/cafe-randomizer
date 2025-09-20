@@ -475,7 +475,7 @@ const publicCafes = [
     name: 'BLUE CHÉRI COFFEE Ploenchit',
     location: 'https://maps.app.goo.gl/tK1vxw8Q7ffmu2A97',
     rating: 3,
-    amenities: ['wifi','power','toilet','ac','windows','food'],
+    amenities: ['wifi','power','toilet','ac','windows'],
     image: 'assets/pub51.png',
     openingHours: '07:00 - 18:00'
   },
@@ -505,6 +505,15 @@ const publicCafes = [
     amenities: ['wifi','power','toilet','ac','windows','food'],
     image: 'assets/pub54.webp',
     openingHours: '08:00 - 17:00'
+  },
+  {
+    id: 'pub55',
+    name: 'LIBI HOME',
+    location: 'https://maps.app.goo.gl/QDbzk1jpz5uTiTZdA',
+    rating: 3,
+    amenities: ['wifi','power','toilet','ac','windows','food'],
+    image: 'assets/pub55.jpg',
+    openingHours: '09:00 - 18:00'
   },
 ];
 
@@ -619,7 +628,7 @@ function renderPublicCafesList(cafes) {
         </div>
         <div class="card-footer">
           <a href="${ui.isUrl(cafe.location) ? ui.normalizeUrl(cafe.location) : `https://maps.google.com/?q=${encodeURIComponent(cafe.location)}`}" 
-             class="maps-link" target="_blank"><strong>📍 Directions</strong></a>
+             class="maps-link" target="_blank" rel="noopener noreferrer"><strong>📍 Directions</strong></a>
           <button class="secondary-btn add-public-cafe-btn" data-cafe-id="${cafe.id}" style="margin-left: 1em;">+ Add</button>
         </div>
       </div>
@@ -733,29 +742,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize UIController for settings modal logic
   if (window.CafeManager && window.Randomizer && window.UIController) {
-    console.log('[DEBUG] Initializing UIController for settings modal on All Cafés page');
+
     const dummyCafeManager = new window.CafeManager();
     const dummyRandomizer = new window.Randomizer(dummyCafeManager);
     const ui = new window.UIController(dummyCafeManager, dummyRandomizer);
     window.ui = ui;
     ui.init().then(() => {
-      console.log('[DEBUG] UIController.init() complete');
+
       const settingsBtn = document.getElementById('settings-btn');
       if (settingsBtn) {
-        console.log('[DEBUG] Found settings button, checking event listeners...');
-        // Check if event is attached
-        const listeners = getEventListeners ? getEventListeners(settingsBtn) : null;
-        if (listeners && listeners.click) {
-          console.log('[DEBUG] Settings button click listeners:', listeners.click);
-        } else {
-          console.log('[DEBUG] No click listeners found on settings button (may be normal in some browsers)');
-        }
+
       } else {
-        console.warn('[DEBUG] Settings button not found!');
+
       }
     });
   } else {
-    console.warn('[DEBUG] CafeManager, Randomizer, or UIController not found on window!');
+
   }
 }); 
-window.publicCafes = publicCafes; 
+window.publicCafes = publicCafes; 

@@ -154,7 +154,7 @@ class UIController {
                 this.showError(result.error);
             }
         } catch (error) {
-            console.error('Error in shuffle:', error);
+
             this.showError('An error occurred while selecting a café. Please try again.');
         } finally {
             // Remove loading state
@@ -187,12 +187,12 @@ class UIController {
 
         resultDisplay.innerHTML = `
             <div class="result-card">
-                <h3>🎉 ${cafe.name}</h3>
+                <h3>🎉 ${this.escapeHtml(cafe.name)}</h3>
                 <p><a href="${this.isUrl(cafe.location) ? this.normalizeUrl(cafe.location) : `https://maps.google.com/?q=${encodeURIComponent(cafe.location)}`}" 
-                       class="maps-link" target="_blank"><strong>📍 Directions</strong></a></p>
+                       class="maps-link" target="_blank" rel="noopener noreferrer"><strong>📍 Directions</strong></a></p>
                 ${rating ? `<p><strong>⭐ Rating:</strong> ${rating}</p>` : ''}
                 ${amenities ? `<p><strong>🏪 Amenities:</strong> ${amenities}</p>` : ''}
-                ${cafe.notes ? `<p><strong>📝 Notes:</strong> ${cafe.notes}</p>` : ''}
+                ${cafe.notes ? `<p><strong>📝 Notes:</strong> ${this.escapeHtml(cafe.notes)}</p>` : ''}
             </div>
         `;
     }
@@ -204,7 +204,7 @@ class UIController {
         resultDisplay.innerHTML = `
             <div class="result-card" style="border-color: var(--error-500); background: #fef2f2;">
                 <h3 style="color: var(--error-500);">❌ Error</h3>
-                <p>${message}</p>
+                <p>${this.escapeHtml(message)}</p>
             </div>
         `;
     }
@@ -225,7 +225,7 @@ class UIController {
             this.currentEditId = cafeId;
             this.showModal('Edit Café', cafe);
         } catch (error) {
-            console.error('Error loading café for editing:', error);
+
             this.showNotification('Error loading café data', 'error');
         }
     }
@@ -355,11 +355,10 @@ class UIController {
         // Provide feedback about URL detection
         if (this.isUrl(location)) {
             const normalizedUrl = this.normalizeUrl(location);
-            console.log('URL detected and normalized:', normalizedUrl);
+
         }
 
-        console.log('Submitting café data:', cafeData);
-        console.log('CafeManager instance:', this.cafeManager);
+
 
         try {
             let result;
@@ -369,7 +368,7 @@ class UIController {
                 result = await this.cafeManager.addCafe(cafeData);
             }
 
-            console.log('CafeManager result:', result);
+
 
             if (result && result.success) {
                 this.closeModal();
@@ -384,11 +383,11 @@ class UIController {
                 this.showNotification(successMessage, 'success');
             } else {
                 const errorMessage = result && result.error ? result.error : 'Failed to save café. Please try again.';
-                console.error('Failed to save café:', result);
+
                 this.showNotification(errorMessage, 'error');
             }
         } catch (error) {
-            console.error('Error in form submission:', error);
+
             this.showNotification('An error occurred while saving the café. Please try again.', 'error');
         }
     }
@@ -412,7 +411,7 @@ class UIController {
 
             cafeGrid.innerHTML = cafes.map(cafe => this.createCafeCard(cafe)).join('');
         } catch (error) {
-            console.error('Error refreshing café list:', error);
+
             cafeGrid.innerHTML = `
                 <div class="text-center" style="grid-column: 1 / -1; padding: var(--space-12); color: var(--error-500);">
                     <h3>Error loading cafés</h3>
@@ -468,7 +467,7 @@ class UIController {
                 </div>
                 <div class="card-footer">
                     <a href="${this.isUrl(cafe.location) ? this.normalizeUrl(cafe.location) : `https://maps.google.com/?q=${encodeURIComponent(cafe.location)}`}" 
-                       class="maps-link" target="_blank"><strong>📍 Directions</strong></a>
+                       class="maps-link" target="_blank" rel="noopener noreferrer"><strong>📍 Directions</strong></a>
                     <button class="edit-btn" onclick="ui.showEditCafeModal('${cafe.id}')">✏️ Edit</button>
                 </div>
             </div>
@@ -485,7 +484,7 @@ class UIController {
                 this.showNotification(result.error || 'Failed to update exclusion status', 'error');
             }
         } catch (error) {
-            console.error('Error toggling excluded:', error);
+
             this.showNotification('Error updating exclusion status', 'error');
         }
     }
@@ -501,7 +500,7 @@ class UIController {
                     this.showNotification(result.error || 'Failed to delete café', 'error');
                 }
             } catch (error) {
-                console.error('Error deleting café:', error);
+
                 this.showNotification('Error deleting café', 'error');
             }
         }
@@ -701,4 +700,4 @@ style.textContent = `
         }
     }
 `;
-document.head.appendChild(style); 
+document.head.appendChild(style); 
