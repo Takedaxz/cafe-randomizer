@@ -1,0 +1,21 @@
+# Development files
+knowledge.md
+memory-bank/
+*.log
+.DS_Store
+Thumbs.db
+
+# Local development
+node_modules/
+.env*
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Cache
+.cache/
+dist/
+build/
