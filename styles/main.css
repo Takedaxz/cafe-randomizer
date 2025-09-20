@@ -1724,11 +1724,17 @@ select:focus {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(217,119,6,0.10);
   transition: background 0.18s, box-shadow 0.18s;
   margin-left: 0;
+}
+
+.public-cafe-filter-hamburger span {
+  line-height: 1;
+  margin: 0;
+  padding: 0;
 }
 
 .public-cafe-filter-hamburger:hover, .public-cafe-filter-hamburger:focus {
